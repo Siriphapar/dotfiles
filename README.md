@@ -1,4 +1,4 @@
 DotFiles
 ========
 
-Configuration files 
+Configuration files that comprise my environment.
