@@ -152,9 +152,9 @@ function pjson() { echo $@ | python -mjson.tool ; }
 function vijs()  { vi `grep --include='*.js' -nr "$@"  | cut -d: -f1 | sort -u` ; }
 
 # work-specific aliases
-alias grepjsi="grep --include='*.js' -inrc "
-alias grepjs="grep --include='*.js' -nrc "
-alias grepc="grep --include='*.h' --include='*.c' -nirc "
+alias grepjsi="grep --include='*.js' -nir "
+alias grepjs="grep --include='*.js' -nr "
+alias grepc="grep --include='*.h' --include='*.c' -nir "
 alias work="cd /Users/emeinfelder/src/ngCore-Server/ngCore"
 alias src="cd /Users/emeinfelder/src/ngCore-Server/ngCore/src/core"
 alias test="cd /Users/emeinfelder/src/ngCore-Server/ngCore/test/core"
