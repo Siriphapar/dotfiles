@@ -1,12 +1,13 @@
 # set up PATH
 PORT_PATH=/opt/local/bin:/opt/local/sbin
 SYS_PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
-NODE_PATH=/usr/local/node-v0.8.19/bin
+# FIXME move node versions to their own directory /usr/local/bin/node
+NODE_PATH=/usr/local/node-v0.8.20/bin
 export PATH=$NODE_PATH:$PORT_PATH:/usr/local/mysql/bin:$SYS_PATH:~/bin
 
 # set up MAN_PATH
 SYS_MAN_PATH=/usr/share/man:/usr/local/share/man:/opt/X11/share/man
-NODE_MAN_PATH=/usr/local/node-v0.8.19/share/man
+NODE_MAN_PATH=/usr/local/node-v0.8.20/share/man
 PORT_MAN_PATH=/opt/local/share/man
 MYSQL_MAN_PATH=/usr/local/mysql/man
 export MANPATH=$NODE_MAN_PATH:$PORT_MAN_PATH:$MYSQL_MAN_PATH:/usr/local/share/man:
