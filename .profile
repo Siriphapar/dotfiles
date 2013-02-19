@@ -72,36 +72,36 @@ function parse_git_branch {
   branch_pattern="^# On branch ([^${IFS}]*)"
   untracked_files="# Untracked files:"
 
-  state=" ";
+  state="";
 
   if [[ ${git_status} =~ "nothing to commit (working directory clean)" ]]; then
-    state="${state}\033[0;32m✓"
+    state="${state} ✓"
   fi
 
   if [[ ${git_status} =~ ${not_staged} ]]; then
-    state="${state}\033[1;31m✗"
+    state="${state} ✗"
   fi
 
   if [[ ${git_status} =~ ${untracked_files} ]]; then
-    state="${state}\033[0;37m✚"
+    state="${state} ✚"
   fi
 
   # add an else if or two here if you want to get more specific
   if [[ ${git_status} =~ ${remote_pattern} ]]; then
     if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-      state="${state}\033[0;33m↑"
+      state="${state} ↑"
     else
-      state="${state}\033[1;46m↓"
+      state="${state} ↓"
     fi
   fi
 
   if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-    state="${state}\033[0;35m↑↓"
+    state="${state} ↑↓"
   fi
 
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
     branch=${BASH_REMATCH[1]}
-    echo -e "(${branch})${state}\033[0;39m"
+    echo -e "(${branch})${state}"
   fi
 }
 
