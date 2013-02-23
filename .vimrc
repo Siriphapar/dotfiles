@@ -97,10 +97,10 @@ set showcmd
 set number
 
 " Use relative line numbers
-"if exists("&relativenumber")
-    "set relativenumber
-    "au BufReadPost * set relativenumber
-"endif
+if exists("&relativenumber")
+    set relativenumber
+    au BufReadPost * set relativenumber
+endif
 
 " Toggle function to switch between relative and absolute numbering
 function! NumberToggle()
@@ -132,10 +132,10 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
-"------
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
+filetype plugin indent on
 " Automatic commands
 if has("autocmd")
     " Enable file type detection
@@ -143,21 +143,21 @@ if has("autocmd")
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
-"------
 
 " I like 4 space indents
 set sw=4
-set shiftwidth=4
-set tabstop=4
-
-" I have conceeded to use spaces rather than tabs.
+set ts=8
+set softtabstop=4
 set expandtab
 
 set nofoldenable
 " We should try folding
 " set foldmethod=indent
 
-set ai
+"set ai
+
+
+
 set background=dark
 set pastetoggle=<F2>
 
