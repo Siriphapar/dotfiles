@@ -102,6 +102,7 @@ set number
     "au BufReadPost * set relativenumber
 "endif
 
+" Toggle function to switch between relative and absolute numbering
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
@@ -111,6 +112,12 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" Automatically set abs numbering when inserting
+autocmd InsertEnter * :set number
+
+" Automatically go to relative numbering when leaving insert mode
+autocmd InsertLeave * :set relativenumber
 
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
