@@ -94,7 +94,7 @@ set title
 set showcmd
 
 " Enable line numbers
-set number
+"set number
 
 " Use relative line numbers
 if exists("&relativenumber")
@@ -146,7 +146,7 @@ endif
 
 " I like 4 space indents
 set sw=4
-set ts=8
+set ts=4
 set softtabstop=4
 set expandtab
 

@@ -70,6 +70,7 @@ function parse_git_branch {
   remote_pattern="# Your branch is (.*) of"
   diverge_pattern="# Your branch and (.*) have diverged"
   not_staged="# Changes not staged for commit:"
+  changes="# Changes to be committed:"
   branch_pattern="^# On branch ([^${IFS}]*)"
   untracked_files="# Untracked files:"
 
@@ -79,7 +80,7 @@ function parse_git_branch {
     state="${state} ✓"
   fi
 
-  if [[ ${git_status} =~ ${not_staged} ]]; then
+  if [[ ${git_status} =~ ${not_staged} || ${git_status} =~ ${changes} ]]; then
     state="${state} ✗"
   fi
 
