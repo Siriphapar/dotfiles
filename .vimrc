@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -158,8 +156,6 @@ set nofoldenable
 
 "set ai
 
-
-
 set background=dark
 set pastetoggle=<F2>
 
@@ -194,3 +190,41 @@ set showcmd		    " display incomplete commands
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
+
+
+ set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+ " let Vundle manage Vundle
+ " required! 
+ Bundle 'gmarik/vundle'
+
+ " My Bundles here:
+ "
+ " original repos on github
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/nerdtree'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+" non github repos
+"Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+ filetype plugin indent on     " required!
+ "
+ " Brief help
+ " :BundleList          - list configured bundles
+ " :BundleInstall(!)    - install(update) bundles
+ " :BundleSearch(!) foo - search(or refresh cache first) for foo
+ " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ "
+ " see :h vundle for more details or wiki for FAQ
+ " NOTE: comments after Bundle command are not allowed..
+
+map <F8> :TagbarToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
