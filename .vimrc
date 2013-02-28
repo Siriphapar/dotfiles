@@ -234,3 +234,4 @@ let NERDTreeDirArrows=1
 
 let g:ctrlp_map = '<Leader>p'
 nmap <silent> <Leader>pp :CtrlPTag<CR>
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
