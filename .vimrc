@@ -203,6 +203,7 @@ map Q gq
  "
  " original repos on github
 Bundle 'majutsushi/tagbar'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'Lokaltog/vim-easymotion'
@@ -227,4 +228,9 @@ Bundle 'scrooloose/nerdtree'
  " NOTE: comments after Bundle command are not allowed..
 
 map <F8> :TagbarToggle<CR>
+
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeDirArrows=1
+
+let g:ctrlp_map = '<Leader>p'
+nmap <silent> <Leader>pp :CtrlPTag<CR>
