@@ -111,8 +111,6 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-
 " Automatically set abs numbering when inserting
 autocmd InsertEnter * :set number
 
@@ -153,8 +151,6 @@ set expandtab
 set nofoldenable
 " We should try folding
 " set foldmethod=indent
-
-"set ai
 
 set background=dark
 set pastetoggle=<F2>
@@ -228,8 +224,9 @@ Bundle 'scrooloose/nerdtree'
  " NOTE: comments after Bundle command are not allowed..
 
 map <F8> :TagbarToggle<CR>
+nnoremap <C-n> :call NumberToggle()<cr>
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
 let NERDTreeDirArrows=1
 
 let g:ctrlp_map = '<Leader>p'
