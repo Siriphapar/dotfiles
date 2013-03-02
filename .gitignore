@@ -1,7 +1,18 @@
-# ignore node.js modules
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
 node_modules
-.node_modules
-node_modules/
 
 # ignore Apple DS Store
 *.DS_Store
@@ -11,16 +22,16 @@ node_modules/
 *.iml
 \#*\#
 
-# ignore log directories
+# ignore the log directry
 logs/
 
 # ignore log files
 *.log
 
-# ignore vim swap files
+# ignore swap files
 *.swp
 
-# ignore tags file 
+# ignore tags file
 tags
 
 # emacs turds
@@ -32,5 +43,3 @@ tags
 # C temp files
 *.[oa]
 
-# git directory
-.git/

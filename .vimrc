@@ -1,9 +1,12 @@
+" Use pathogen a bundle installed
+call pathogen#infect()
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+"set clipboard=unnamed
 
 " Enhance command-line completion
 set wildmenu
@@ -37,7 +40,14 @@ if exists("&undodir")
     set undodir=~/.vim/undo
 endif
 
-" Respect modeline in files
+" Respect modeline in files 
+" modelines allow you to set variables specific to a file. By default, the
+" first and last five lines are read by vim for variable settings. For
+" example, if you put the following in the last line of a C program, you would
+" get a textwidth of 60 chars when editing that file:
+"
+" /* vim: tw=60 ts=2: */
+"
 set modeline
 set modelines=4
 
@@ -48,16 +58,23 @@ set secure
 " Enable syntax highlighting
 syntax on
 
-" Highlight current line
+" Highlight current line with an underline
 set cursorline
 
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set lcs=tab:▸\ ,trail:·,nbsp:_
+
+" :set list displays whitespace, while :set nolist displays normally. It is
+" convenient to use :set list! to toggle the option on, so that you can later
+" press : followed by the up arrow to repeat the previous command, to toggle
+" 'list' off.
 set list
 
 " Highlight searches
 set hlsearch
+" super sexy searching
+set incsearch
 
 " Ignore case of searches
 set ignorecase
@@ -65,12 +82,13 @@ set ignorecase
 " Highlight dynamically as pattern is typed
 set incsearch
 
-"------
 " Always show status line
 set laststatus=2
 
 " Enable mouse in all modes
 "set mouse=a
+set mouse+=a
+vmap <C-C> "+y
 
 " Disable error bells
 set noerrorbells
@@ -187,32 +205,28 @@ set showcmd		    " display incomplete commands
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-
+" Vundle is another package manager
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
- " let Vundle manage Vundle
- " required! 
- Bundle 'gmarik/vundle'
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
- " My Bundles here:
- "
- " original repos on github
+" vim-scripts repos
+"Bundle "MarcWeber/vim-addon-mw-utils"
+"Bundle "tomtom/tlib_vim"
+"Bundle "honza/snipmate-snippets"
+"Bundle "garbas/vim-snipmate"
 Bundle 'majutsushi/tagbar'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'mutewinter/ir_black_mod'
+Bundle 'scrooloose/syntastic'
+Bundle 'Lokaltog/vim-powerline'
 " ...
 
- filetype plugin indent on     " required!
+filetype plugin indent on     " required!
  "
  " Brief help
  " :BundleList          - list configured bundles
@@ -223,6 +237,9 @@ Bundle 'scrooloose/nerdtree'
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
 
+" force 256 colors (needed for powerline)
+set t_Co=256
+
 map <F8> :TagbarToggle<CR>
 nnoremap <C-n> :call NumberToggle()<cr>
 
@@ -232,3 +249,16 @@ let NERDTreeDirArrows=1
 let g:ctrlp_map = '<Leader>p'
 nmap <silent> <Leader>pp :CtrlPTag<CR>
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
+
+
+" Syntastic
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
