@@ -214,10 +214,7 @@ map Q gq
 Bundle 'gmarik/vundle'
 
 " vim-scripts repos
-"Bundle "MarcWeber/vim-addon-mw-utils"
-"Bundle "tomtom/tlib_vim"
-"Bundle "honza/snipmate-snippets"
-"Bundle "garbas/vim-snipmate"
+Bundle 'pope/vim-fugitive'
 Bundle 'majutsushi/tagbar'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
