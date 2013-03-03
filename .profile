@@ -168,3 +168,4 @@ alias ng="ngServer"
 alias makeng="npm install; npm link ngServer"
 alias ngnew="ng new --name=TestServer; cd TestServer; npm install; npm link ngServer"
 alias twork='cd ~/src/Support/Transformers'
+alias makectags='find . | grep -v node_modules | grep ".js$" | xargs ctags --tag-relative=yes --fields=+akst'
