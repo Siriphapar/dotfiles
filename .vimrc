@@ -86,8 +86,8 @@ set incsearch
 set laststatus=2
 
 " Enable mouse in all modes
-"set mouse=a
-set mouse+=a
+set mouse=v
+
 vmap <C-C> "+y
 
 " Disable error bells
@@ -259,3 +259,11 @@ set statusline+=%*
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
