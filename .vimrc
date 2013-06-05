@@ -221,6 +221,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mutewinter/ir_black_mod'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'derekwyatt/vim-scala'
 " ...
 
 filetype plugin indent on     " required!
@@ -237,16 +238,19 @@ filetype plugin indent on     " required!
 " force 256 colors (needed for powerline)
 set t_Co=256
 
+" F8 activates the tag bar, reading ctags
 map <F8> :TagbarToggle<CR>
 nnoremap <C-n> :call NumberToggle()<cr>
 
+" Ctrl-t for NERD Tree
 map <C-t> :NERDTreeToggle<CR>
 let NERDTreeDirArrows=1
 
+" <leader>-p - get a listing of files in the cwd
+" and select the file for editing in a new window
 let g:ctrlp_map = '<Leader>p'
 nmap <silent> <Leader>pp :CtrlPTag<CR>
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
-
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['jshint']
@@ -259,6 +263,16 @@ set statusline+=%*
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
+" Alt+leftarrow will go one window left, etc.
+"nmap <silent> <A-Up> :wincmd k<CR>
+"nmap <silent> <A-Down> :wincmd j<CR>
+"nmap <silent> <A-Left> :wincmd h<CR>
+"nmap <silent> <A-Right> :wincmd l<CR>
+"
+" Use Ctrl-h,j,k,l to move about windows
+"map <C-J> <C-W>j<C-W>_
+"map <C-K> <C-W>k<C-W>_
 
 
 " Uncomment the following to have Vim jump to the last position when
