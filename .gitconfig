@@ -1,18 +1,18 @@
 [user]
-	name = Edmond Meinfelder
-	email = edmond@stdarg.com
+    name = Edmond Meinfelder
+    email = edmond@stdarg.com
 [rerere]
-	enabled = true
+    enabled = true
 [http]
-	sslVerify = false
+    sslVerify = false
 [core]
-	excludesfile = /Users/edmond/.gitignore_global
+    excludesfile = /Users/edmond/.gitignore_global
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [color]
     branch = auto
     diff = auto
@@ -43,3 +43,7 @@
     purr = pull --rebase
 [github]
     user = git@stdarg.com
+[push]
+    default = matching
+[branch]
+    autosetuprebase = always

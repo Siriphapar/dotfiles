@@ -221,7 +221,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mutewinter/ir_black_mod'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'derekwyatt/vim-scala'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'goatslacker/mango.vim'
+"Bundle 'derekwyatt/vim-scala'
 " ...
 
 filetype plugin indent on     " required!
@@ -237,6 +239,9 @@ filetype plugin indent on     " required!
 
 " force 256 colors (needed for powerline)
 set t_Co=256
+
+"colorscheme ir_black_mod
+colorscheme mango
 
 " F8 activates the tag bar, reading ctags
 map <F8> :TagbarToggle<CR>
@@ -274,7 +279,7 @@ let g:Powerline_symbols = 'fancy'
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_
 
-
+" Set color for comments
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")

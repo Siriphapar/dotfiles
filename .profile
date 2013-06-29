@@ -2,12 +2,12 @@
 PORT_PATH=/opt/local/bin:/opt/local/sbin
 SYS_PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # FIXME move node versions to their own directory /usr/local/bin/node
-NODE_PATH=/usr/local/node-v0.8.20/bin
-export PATH=$NODE_PATH:$PORT_PATH:/usr/local/mysql/bin:$SYS_PATH:~/bin
+NODE_PATH=/usr/local/node-v0.10.12/bin
+export PATH=$NODE_PATH:$PORT_PATH:/usr/local/mysql/bin:$SYS_PATH:~/bin:~/cstartup/play
 
 # set up MAN_PATH
 SYS_MAN_PATH=/usr/share/man:/usr/local/share/man:/opt/X11/share/man
-NODE_MAN_PATH=/usr/local/node-v0.8.20/share/man
+NODE_MAN_PATH=/usr/local/node-v0.10.12/share/man
 PORT_MAN_PATH=/opt/local/share/man
 MYSQL_MAN_PATH=/usr/local/mysql/man
 export MANPATH=$NODE_MAN_PATH:$PORT_MAN_PATH:$MYSQL_MAN_PATH:/usr/local/share/man:
@@ -107,12 +107,12 @@ function parse_git_branch {
   fi
 }
 
-PS1="${FG_BOLD_WHITE}\w ${FG_YELLOW}\$(parse_git_branch)${RESET} $ "
+PS1="${FG_BOLD_WHITE}\w ${FG_YELLOW}\$(parse_git_branch) ${FG_RED}\$${RESET} "
 
 alias sb='source ~/.profile'
 alias vb='vi ~/.profile'
 alias mkdir='mkdir -p'
-alias python='python2.6'
+alias python='python2.7'
 alias h='history'
 alias j='jobs -l'
 alias which='type -all'
@@ -154,6 +154,8 @@ function pjson() { echo $@ | python -mjson.tool ; }
 function vijs()  { vi `grep --include='*.js' -nr "$@"  | cut -d: -f1 | sort -u` ; }
 
 # work-specific aliases
+alias gem="gem1.9"
+alias ruby="/opt/local/bin/ruby1.9"
 alias grepjsi="grep --include='*.js' -nir "
 alias grepjs="grep --include='*.js' -nr "
 alias grepc="grep --include='*.h' --include='*.c' -nir "
@@ -169,3 +171,14 @@ alias makeng="npm install; npm link ngServer"
 alias ngnew="ng new --name=TestServer; cd TestServer; npm install; npm link ngServer"
 alias twork='cd ~/src/Support/Transformers'
 alias makectags='find . | grep -v node_modules | grep ".js$" | xargs ctags --tag-relative=yes --fields=+akst'
+alias startredis='redis-server /opt/local/etc/redis.conf'
+alias scala='scala-2.10'
+
+##
+# Your previous /Users/edmond/.profile file was backed up as /Users/edmond/.profile.macports-saved_2013-05-27_at_13:28:16
+##
+
+# MacPorts Installer addition on 2013-05-27_at_13:28:16: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

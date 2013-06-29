@@ -29,6 +29,7 @@
     "undef"         : true,
     "unused"        : true,
     "strict"        : true,
+    "swindent"      : true,
     "trailing"      : true,
     "undef"         : true,
     "unused"        : true,
@@ -47,6 +48,8 @@
         "sprintf"   : true,
         "waits"     : false,
         "waitsFor"  : false,
-        "runs"      : false
+        "runs"      : false,
+        "toString"  : true,
+        "toString.call"  : true
     }
 }
